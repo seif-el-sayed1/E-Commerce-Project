@@ -80,7 +80,7 @@ function Cart() {
                         <thead className="fw-bold">
                             <tr>
                                 <td className="p-2 text-center fw-bold fs-5">Product</td>
-                                <td className="p-2 text-center fw-bold fs-5">Title</td>
+                                <td className="p-2 text-center fw-bold fs-5 w-50">Title</td>
                                 <td className="p-2 text-center fw-bold fs-5">Count</td>
                                 <td className="p-2 text-center fw-bold fs-5">Price</td>
                                 <td className="p-2 text-center fw-bold fs-5">Total</td>
