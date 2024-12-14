@@ -5,7 +5,7 @@ import { faPhone } from "@fortawesome/free-solid-svg-icons"
 function Footer() {
     return (
         <>
-            <div className="footer text-center p-3 ">
+            <div className="footer text-center p-3">
                 <div className="container">
                     <h2 className="fw-bold mb-3 ">SEIF store</h2>
                     <p className="mb-4 fw-bold" >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit corrupti quaerat quae aspernatur rerum cumque perspiciatis maxime mollitia culpa aliquam saepe corporis inventore, deserunt voluptatum eaque et est aliquid id.</p>

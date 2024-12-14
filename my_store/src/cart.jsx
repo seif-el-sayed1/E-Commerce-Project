@@ -55,7 +55,7 @@ function Cart() {
         }
         return(
             <div className="cart py-4">
-                <div className="container">
+                <div className="container-lg">
                 <button type="button" className="btn delete_all fw-bold mb-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Delete All
                 </button>
