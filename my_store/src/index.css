@@ -13,6 +13,9 @@
     padding: 0;
     margin: 0;
 }
+html {
+    background-color: var(--golden-color);
+}
 body::-webkit-scrollbar {
     background: var(--golden-color); 
     width: 4px;
@@ -222,6 +225,7 @@ body::-webkit-scrollbar-thumb {
 .end_footer {
     background-color: var(--golden-color);
     border-top: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
 }
 .end_footer div {
     color: var(--secondary-color);   
