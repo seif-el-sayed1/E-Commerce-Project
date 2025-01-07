@@ -16,7 +16,6 @@ function Navbar() {
     }
     function light() {
         localStorage.setItem("mood", "light");
-        localStorage.setItem("mood", "light");
         document.documentElement.style.setProperty('--main-color', '#0F0F0F');
         document.documentElement.style.setProperty('--hover-color', '#F5F5EB');
         moon = faSun; 
