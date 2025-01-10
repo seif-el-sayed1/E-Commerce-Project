@@ -562,10 +562,11 @@ body::-webkit-scrollbar-thumb {
 /* ================= loading ================ */
 .loader {
     background-color: var(--golden-color);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    border-top: 4px solid var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
 }
 .bars {
     width: 10px;
@@ -641,10 +642,10 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 200px;
     background-color: var(--golden-color);
     padding: 20px;
-    
+    border-top: 4px solid var(--secondary-color);
 }
 .error-card {
     background-color: var(--main-color);

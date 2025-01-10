@@ -1,10 +1,55 @@
-import { useContext } from "react";
-import { ProductsContext } from "../App";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faArrowUpLong } from '@fortawesome/free-solid-svg-icons';
+import { useState, useEffect } from "react";
 
 function Products() {
-    const value = useContext(ProductsContext) ;
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+
+    useEffect(() => {
+        fetch("https://fakestoreapi.com/products")
+        .then((res) => {
+            if (!res.ok) {
+            throw new Error("Failed to fetch products.");
+            }
+            return res.json();
+        })
+        .then((data) => setProducts(data))
+        .catch(() => setError(true))
+        .finally(() => setLoading(false));
+    }, []);
+
+    if (loading) {
+        return (
+        <div className="loader d-flex">
+            <div className="bars bar1"></div>
+            <div className="bars bar2"></div>
+            <div className="bars bar3"></div>
+            <div className="bars bar4"></div>
+            <div className="bars bar5"></div>
+            <div className="bars bar6"></div>
+            <div className="bars bar7"></div>
+            <div className="bars bar8"></div>
+            <div className="bars bar9"></div>
+            <div className="bars bar10"></div>
+        </div>
+        );
+    }
+
+    if (error) {
+        return (
+        <div className="error-container">
+            <div className="error-card">
+            <div className="error-header">
+                <span className="error-title">Oops! Something went wrong</span>
+            </div>
+            <p className="error-message">please try again</p>
+            </div>
+        </div>
+        );
+    }
+
     let items = [];
     let cart;
     if (localStorage.cart !=null) {
@@ -71,7 +116,7 @@ function Products() {
                 </div>
                 <div className="items mt-4">
                     <div className="row row-cols-1 row-cols-lg-3 row-cols-sm-2 row-cols-md-2 ">
-                        {value.map((ele) => {
+                        {products.map((ele) => {
                             return (
                                 <div key={ele.id} className="col">
                                     <div className="card m-1">
