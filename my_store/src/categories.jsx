@@ -5,10 +5,14 @@ import { faCartShopping, faArrowUpLong } from '@fortawesome/free-solid-svg-icons
 function Category() {
     let category = localStorage.category
     const [categories, setCategories] = useState([])
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
     useEffect(() => {
         fetch(`https://fakestoreapi.com/products/category/${category}`)
         .then((res) => res.json())
-        .then((data) => setCategories(data)); 
+        .then((data) => setCategories(data))
+        .catch(() => setError(true))
+        .finally(() => setLoading(false));
     },[category]);
     let cart = JSON.parse(localStorage.cart);
     let items = JSON.parse(localStorage.items)
@@ -41,6 +45,35 @@ function Category() {
             button.style.display = 'none';
         }
     };
+    if (loading) {
+        return (
+        <div className="loader d-flex">
+            <div className="bars bar1"></div>
+            <div className="bars bar2"></div>
+            <div className="bars bar3"></div>
+            <div className="bars bar4"></div>
+            <div className="bars bar5"></div>
+            <div className="bars bar6"></div>
+            <div className="bars bar7"></div>
+            <div className="bars bar8"></div>
+            <div className="bars bar9"></div>
+            <div className="bars bar10"></div>
+        </div>
+        );
+    }
+
+    if (error) {
+        return (
+        <div className="error-container">
+            <div className="error-card">
+            <div className="error-header">
+                <span className="error-title">Oops! Something went wrong</span>
+            </div>
+            <p className="error-message">please try again</p>
+            </div>
+        </div>
+        );
+    }
     return (
         <div className="category pb-3">
             <div className="cart_icon z-1">
